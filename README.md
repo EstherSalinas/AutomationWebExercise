@@ -91,11 +91,17 @@ The Steps classes are divided depending on the type of operation performed by th
 src/test/java/pageObjects
 
 I have used Page Object Design Pattern and Selenium PageFactory
+
 The pages involved in the test are the following:
+
 MainPage: Is the main page, where user perform the search of the product
+
 ResultsPage: Where are shown all the products that match with the previous search
+
 DetailPage: Where the detail of the product is shown after the user click on the list of the ResultsPage
+
 PreShoppingPage: Is the page shown before go to shopping cart with the products selected and other recommendations
+
 ShoppingCartPage: Is the page of the shopping cart
 
 In all of the Page Objects the elements of the page are found using PageFactory with the @FindBy annotation
