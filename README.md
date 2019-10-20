@@ -109,23 +109,27 @@ In all of the Page Objects the elements of the page are found using PageFactory 
 ### PageObjectManager
 src/test/java/managers/PageObjectManager
 
-Creates an instance of a Page Object if it has not been created. If has, returns the instance.
+Creates an instance of a Page Object if it has not been created. If it has, returns the instance.
 
 ### ConfigFileReader
 src/test/java/providers
 
 For this project I have created a Configuration.properties file with some basic data needed during the project, for
 example, url, environment, etc.
-This file is read by ConfigFileReader src/test/java/providers
+
+This file is read by ConfigFileReader src/test/java/providers.
+
 As it needs to be accessed globally, in order to have only one Instance, I have implemented a Singleton Pattern.
+
 FileReaderManager has a static reference to its own and returns the reference from the static getInstance() method.
-src/test/java/managers/FileReaderManager
+(src/test/java/managers/FileReaderManager)
 
 ### WebdriverManager
 src/test/java/managers/WebDriverManager
 
 To create the WebDriver, some information is in Configuration.properties file and are provided by the ConfigFileReader
 WebDriverManager checks if driver has been created before, if not, creates it.
+
 Is prepared to be executed locally and with Chrome.
 Exposes two methods: getDriver() and closeDriver();
 
@@ -134,6 +138,7 @@ src/test/java/cucumber/TestContext
 
 In order to share state between all the Steps, I have used the library PicoContainer
 that supports Cucumber to Manage the Dependency Injection.
+
 Cucumber detects classes with steps definitions, passes them to PicoContainer and it creates the new instances.
 
 All the information that the Steps need are in:
@@ -143,7 +148,8 @@ All the information that the Steps need are in:
 ### TestRunner
 src/test/java/runners/TestRunner
 
-Other way to run the test is right click TestRunner class, "Run TestRunner"
+Other way to run the test is right click TestRunner class, "Run TestRunner".
+
 Here there are specified some Cucumber Options.
 
 
