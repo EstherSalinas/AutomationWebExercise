@@ -1,0 +1,186 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 11,
+        "name": "1 Customer searches a product and adds it into the shopping cart",
+        "description": "",
+        "id": "as-a-user-i-want-to-make-a-purchase-in-amazon-web;1-customer-searches-a-product-and-adds-it-into-the-shopping-cart;;2",
+        "after": [
+          {
+            "result": {
+              "duration": 3077362500,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.AfterSteps(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 8486254301,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "user is in Home Page",
+            "match": {
+              "location": "SearchSteps.user_is_in_Home_Page()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 4863882800,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "he searches for \"iPhone 11\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "iPhone 11",
+                  "offset": 17
+                }
+              ],
+              "location": "SearchSteps.he_searches_for(String)"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 4740153300,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "he adds the first item into the shopping cart",
+            "match": {
+              "location": "AddToShoppingCartSteps.he_adds_the_first_item_into_the_shopping_cart()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1712047899,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "the \"iPhone 11\" is added correctly into the shopping cart",
+            "match": {
+              "arguments": [
+                {
+                  "val": "iPhone 11",
+                  "offset": 5
+                }
+              ],
+              "location": "ShoppingSteps.the_is_added_correctly_into_the_shopping_cart(String)"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 12,
+        "name": "1 Customer searches a product and adds it into the shopping cart",
+        "description": "",
+        "id": "as-a-user-i-want-to-make-a-purchase-in-amazon-web;1-customer-searches-a-product-and-adds-it-into-the-shopping-cart;;3",
+        "after": [
+          {
+            "result": {
+              "duration": 3038223500,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.AfterSteps(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 6133660200,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "user is in Home Page",
+            "match": {
+              "location": "SearchSteps.user_is_in_Home_Page()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 4360696900,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "he searches for \"iPhone XR\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "iPhone XR",
+                  "offset": 17
+                }
+              ],
+              "location": "SearchSteps.he_searches_for(String)"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 4778038900,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "he adds the first item into the shopping cart",
+            "match": {
+              "location": "AddToShoppingCartSteps.he_adds_the_first_item_into_the_shopping_cart()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1866917900,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "the \"iPhone XR\" is added correctly into the shopping cart",
+            "match": {
+              "arguments": [
+                {
+                  "val": "iPhone XR",
+                  "offset": 5
+                }
+              ],
+              "location": "ShoppingSteps.the_is_added_correctly_into_the_shopping_cart(String)"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "As a user I want to make a purchase in Amazon Web",
+    "description": "",
+    "id": "as-a-user-i-want-to-make-a-purchase-in-amazon-web",
+    "keyword": "Feature",
+    "uri": "Amazon_Test.feature"
+  }
+]
