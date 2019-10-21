@@ -37,10 +37,16 @@ If you see the version, Java is installed
 1. Download java and follow the steps specified at the official page:
 https://java.com/en/download/help/mac_install.xml
 
-### Install Maven on Windows and Mac
+### Install Maven on Windows or Mac
 Follow the steps: https://maven.apache.org/install.html
 
 ### Execute the project
+
+The project is executed using Chrome by default, as it is set in config file: Configuration.properties
+You can change browser=chrome by browser=firefox in order to change the browser execution.
+In /drivers there are some drivers for Firefox and Chrome that are compatible with Linux, Mac and Windows, for the
+latest versions of Chrome and Firefox respectively. The path to the drivers are set as a System properties at
+/test/java/managers/WebdriverManager.
 
 Go to command prompt and do to the directory where you have the project.
 For example c:/AutomationWebExercise
@@ -55,6 +61,8 @@ If you want to generate a pretty hml report with the results, type the following
 ```
 mvn cluecumber-report:reporting
 ```
+
+The result is genetared at /target/generated-report
 
 For more information about cluecumber report:
 https://github.com/trivago/cluecumber-report-plugin
