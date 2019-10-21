@@ -16,7 +16,7 @@ public class ConfigFileReader {
     public ConfigFileReader() {
 
         try {
-            // reader = new BufferedReader(new FileReader(propertyFilePath));
+
             FileInputStream fileInputStream = new FileInputStream(propertyFilePath);
             properties = new Properties();
             try {
@@ -29,21 +29,41 @@ public class ConfigFileReader {
             e.printStackTrace();
             throw new RuntimeException("Configuration.properties not found at " + propertyFilePath);
         }
-
     }
 
-    public String getDriverPath() {
+
+    public String getDriverPathChrome() {
         String driverPath = null;
         if (OS.indexOf("win") >= 0) {
             System.out.println("This is Windows");
-            driverPath = properties.getProperty("driverPathWindows");
+            driverPath = properties.getProperty("driverPathChromeWindows");
         } else if (OS.indexOf("nix") >= 0 || OS.indexOf("nux") >= 0 || OS.indexOf("aix") > 0 ) {
             System.out.println("This is Unix or Linux");
-            driverPath = properties.getProperty("driverPathUnix");
+            driverPath = properties.getProperty("driverPathChromeLinux");
+        } else if (OS.indexOf("mac") >= 0) {
+            System.out.println("This is MacOS");
+            driverPath = properties.getProperty("driverPathChromeMacOS");
         }
         if(driverPath!= null) return driverPath;
         else throw new RuntimeException("driverPathUnix not specified in the Configuration.properties file.");
     }
+
+    public String getDriverPathFirefox() {
+        String driverPath = null;
+        if (OS.indexOf("win") >= 0) {
+            System.out.println("This is Windows");
+            driverPath = properties.getProperty("driverPathFirefoxWindows");
+        } else if (OS.indexOf("nix") >= 0 || OS.indexOf("nux") >= 0 || OS.indexOf("aix") > 0 ) {
+            System.out.println("This is Unix or Linux");
+            driverPath = properties.getProperty("driverPathFirefoxLinux");
+        } else if (OS.indexOf("mac") >= 0) {
+            System.out.println("This is MacOS");
+            driverPath = properties.getProperty("driverPathFirefoxMacOS");
+        }
+        if(driverPath!= null) return driverPath;
+        else throw new RuntimeException("driverPathUnix not specified in the Configuration.properties file.");
+    }
+
 
     public long getImplicitlyWait() {
         String implicitlyWait = properties.getProperty("implicitlyWait");

@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
 import java.util.concurrent.TimeUnit;
@@ -16,11 +17,12 @@ public class WebDriverManager {
     private static DriverType driverType;
     private static EnvironmentType environmentType;
     private static final String CHROME_DRIVER_PROPERTY = "webdriver.chrome.driver";
+    private static final String FIREFOX_DRIVER_PROPERTY = "webdriver.gecko.driver";
+
 
     public WebDriverManager() {
         driverType = FileReaderManager.getInstance().getConfigReader().getBrowser();
         environmentType = FileReaderManager.getInstance().getConfigReader().getEnvironment();
-
     }
 
     /** Creates a local driver if it has not been created depending on the driverType specified at properties file */
@@ -46,12 +48,17 @@ public class WebDriverManager {
 
     private WebDriver createLocalDriver() {
         switch (driverType) {
-            case FIREFOX : driver = new FirefoxDriver();
+            case FIREFOX :
+                System.setProperty(FIREFOX_DRIVER_PROPERTY, FileReaderManager.getInstance().getConfigReader().getDriverPathFirefox());
+
+                FirefoxOptions options = new FirefoxOptions()
+                        .setLegacy(true);
+
+                driver = new FirefoxDriver();
                 break;
             case CHROME :
-                System.setProperty(CHROME_DRIVER_PROPERTY, FileReaderManager.getInstance().getConfigReader().getDriverPath());
+                System.setProperty(CHROME_DRIVER_PROPERTY, FileReaderManager.getInstance().getConfigReader().getDriverPathChrome());
                 driver = new ChromeDriver();
-
                 break;
             case INTERNETEXPLORER : driver = new InternetExplorerDriver();
                 break;
@@ -64,6 +71,5 @@ public class WebDriverManager {
 
     public void closeDriver() {
         driver.close();
-        driver.quit();
     }
 }
